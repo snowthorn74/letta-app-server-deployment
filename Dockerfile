@@ -23,6 +23,7 @@ COPY letta-code-version.txt /tmp/letta-code-version.txt
 
 RUN set -eux; \
     apt-get update; \
+    apt-get install -y curl; \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash -; \
     apt-get install -y git python3 curl wget jq nodejs make g++; \
     version="${LETTA_CODE_VERSION:-$(cat /tmp/letta-code-version.txt)}"; \
