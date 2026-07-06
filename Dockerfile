@@ -24,9 +24,10 @@ COPY letta-code-version.txt /tmp/letta-code-version.txt
 RUN set -eux; \
     apt-get update; \
     apt-get install -y curl; \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash -; \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash -; \
     apt-get install -y git python3 curl wget jq nodejs make g++; \
     version="${LETTA_CODE_VERSION:-$(cat /tmp/letta-code-version.txt)}"; \
+    npm install -g node-gyp; \
     bun install -g "@letta-ai/letta-code@${version}" "npm@10"; \
     apt-get purge -y make g++; \
     apt-get autoremove -y; \
