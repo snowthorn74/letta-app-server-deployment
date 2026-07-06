@@ -28,7 +28,7 @@ RUN set -eux; \
     apt-get install -y git python3 curl wget jq nodejs make g++; \
     version="${LETTA_CODE_VERSION:-$(cat /tmp/letta-code-version.txt)}"; \
     npm install -g node-gyp; \
-    bun install -g "@letta-ai/letta-code@${version}" "npm@10"; \
+    bun install -g "@letta-ai/letta-code@${version}" "npm@10" "pg"; \
     apt-get purge -y make g++; \
     apt-get autoremove -y; \
     rm -rf /var/lib/apt/lists/*
